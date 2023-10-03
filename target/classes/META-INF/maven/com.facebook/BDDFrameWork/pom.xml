@@ -35,5 +35,10 @@
 		</dependency>
 
 
+		<dependency>
+			<groupId>com.facebook</groupId>
+			<artifactId>July2023BDDFrameWork</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 </project>

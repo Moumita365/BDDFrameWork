@@ -1,30 +1,39 @@
 package com.facebook.stepDefinitions;
 
+import com.facebook.base.BaseTest;
+import com.facebook.pages.LoginPage;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class LoginTest {
-	@Given("user open facebook url")
-	public void user_open_facebook_url() {
+public class LoginTest extends BaseTest{
+	LoginPage loginPage; 
+	
+	@Given("user_open_facebook_home_page()")
+	public void user_open_facebook_home_page() {
+		System.out.println("hello given");
+		
+		openApp();
 	    
 	}
 
-	@When("user enter username")
-	public void user_enter_username() {
+	@When("user enter userName and password")
+	public void user_enter_user_name_and_password() {
+		System.out.println("hello when");
+		loginPage = new LoginPage(driver);
+		loginPage.userName("Ayon");
+		loginPage.enterPassword("aoyeerr");
 	}
 
-	@When("user enter password")
-	public void user_enter_password() {
-	   
+	@Then("user succesfully logged in")
+	public void user_succesfully_logged_in() {
+		System.out.println("hello then"); 
+		loginPage.clickLoginButton();
+		closeApp();
 	}
-
-	@Then("user loggin in")
-	public void user_loggin_in() {
-	    
-	}
-
-
-
 
 }
+
+
+
